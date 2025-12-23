@@ -1,0 +1,38 @@
+═══════════════════════════════════════════════════════════
+            Installation Completed Successfully!
+═══════════════════════════════════════════════════════════
+
+Text Editor Plus has been successfully installed on your computer.
+
+You can now start using the application immediately:
+
+  📍 START MENU
+     Access from Windows Start Menu under "Text Editor Plus"
+
+  📍 DESKTOP SHORTCUT
+     Double-click the desktop icon to launch the application
+
+  📍 INSTALLATION FOLDER
+     Run TextEditorPlus.exe from the installation directory
+
+───────────────────────────────────────────────────────────
+
+QUICK START:
+• Open any text file to start editing
+• Use Ctrl+O to open files, Ctrl+S to save
+• Switch themes from the View menu
+• Format code using the Format menu
+
+───────────────────────────────────────────────────────────
+
+Thank you for choosing Text Editor Plus!
+
+We hope you enjoy using this powerful text editor. If you have any
+questions, need assistance, or would like to provide feedback,
+please don't hesitate to contact us.
+
+═══════════════════════════════════════════════════════════
+
+Click "Finish" to close the setup wizard and complete the installation.
+
+═══════════════════════════════════════════════════════════

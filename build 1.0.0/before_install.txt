@@ -1,0 +1,34 @@
+═══════════════════════════════════════════════════════════
+          Welcome to Text Editor Plus Setup Wizard
+═══════════════════════════════════════════════════════════
+
+Thank you for choosing Text Editor Plus!
+
+This powerful text editor provides a modern, feature-rich editing
+experience for developers and content creators.
+
+KEY FEATURES:
+───────────────────────────────────────────────────────────
+  ✓ Advanced Syntax Highlighting
+    Support for XML, HTML, JSON, Python, CSS, JavaScript, and more
+
+  ✓ Intelligent Auto-Formatting
+    One-click formatting for XML, JSON, Python, and other file types
+
+  ✓ Beautiful Theme Support
+    Dark and Light themes with smooth transitions
+
+  ✓ High DPI Display Support
+    Optimized for modern high-resolution displays
+
+  ✓ Professional Code Editor
+    Line numbers, word wrap, find & replace, and more
+
+───────────────────────────────────────────────────────────
+
+IMPORTANT:
+Please read the license agreement carefully before proceeding.
+
+Click "Next" to continue with the installation, or "Cancel" to exit.
+
+═══════════════════════════════════════════════════════════

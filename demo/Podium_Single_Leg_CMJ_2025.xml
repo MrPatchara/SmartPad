@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<protocol Name="Single_Leg_CMJ" ID="0" Description="PODIUM Single Leg CMJ" Clinic="False" Performance="True">
+  <Antrophometric MeasuresSet="AMeasuresSet_Sport_GRF_ENG" Description=""/>
+
+  <Sequences NSequences="8">
+    <MSequence Name="CMJump" Model="2GRF" Description=""/>
+
+    <MSequence Name="RT CMJump" Model="2GRF" Description=""/>
+
+    <MSequence Name="LT CMJump" Model="2GRF" Description=""/>
+  </Sequences>
+
+  <Processors NProcessors="9">
+    <Processor Name="P_CMJump_Podium" Description=""> </Processor>
+
+    <Processor Name="P_CMJump_RT_Podium" Description=""> </Processor>
+
+    <Processor Name="P_CMJump_LT_Podium" Description=""> </Processor>
+    <Processor Name="P_CMJump_LT_Podium" Description=""> </Processor>
+    <Processor Name="P_CMJump_LT_Podium" Description=""> </Processor>
+    <Processor Name="P_CMJump_LT_Podium" Description=""> </Processor>
+    <Processor Name="P_CMJump_LT_Podium" Description=""> </Processor>
+  </Processors>
+
+  <Reports NReports="13">
+    <Report Name="R_CMJump_Podium" Description=""> </Report>
+
+    <Report Name="R_CMJump_RT_Podium" Description=""> </Report>
+
+    <Report Name="R_CMJump_LT_Podium" Description=""> </Report>
+
+    <Report Name="R_CMJump_RT+LT_Podium" Description=""> </Report>
+  </Reports>
+</protocol>

@@ -1,0 +1,2557 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<protocol emxFormat="2.6" EMGLabelFree="true" description="">
+  <source>
+    <msequence label="Squat"/>
+  </source>
+
+  <computations>
+    <scalar_value label="middle" algo="const_input" x="10395" y="955" description="" visible="false" par1="0.5"/>
+
+    <scalar_value label="9,8" algo="const_input" x="9180" y="955" description="" visible="false" par1="9.8"/>
+
+    <scalar_value label="-1" algo="const_input" x="9180" y="2380" description="" visible="false" par1="-1"/>
+
+    <force1d_value label="1 N" algo="const_input" x="7770" y="985" description="" visible="false" par1="1"/>
+
+    <mass_value label="1 kg" algo="const_input" x="9195" y="1660" description="" visible="false" par1="1"/>
+
+    <force1d_value label="0 N" algo="const_input" x="7770" y="2365" description="" visible="false" par1="0"/>
+
+    <freq_value label="25 Hz" algo="const_input" x="6365" y="925" description="" visible="false" par1="25"/>
+
+    <force1d_value label="-1 N" algo="const_input" x="7770" y="1675" description="" visible="false" par1="-1"/>
+
+    <text_value label="#Useful Values#" algo="const_input" x="5450" y="200" description="" visible="false" text=""/>
+
+    <text_value label="#Manual definition of the standing offset, and of the SQUAT start and stop events#" algo="const_input" x="12645" y="4240" description="" visible="false" text=""/>
+
+    <text_value label="#Reaction Force as % of the Body Weight#" algo="const_input" x="6690" y="15405" description="" visible="false" text=""/>
+
+    <text_value label="#Subject's Weight#" algo="const_input" x="13790" y="15690" description="" visible="false" text=""/>
+
+    <time_value label="100ms" algo="const_input" x="6365" y="1682" description="" visible="false" par1="0.1"/>
+
+    <time_value label="-100ms" algo="const_input" x="6365" y="2440" description="" visible="false" par1="-0.1"/>
+
+    <acc1d_value label="1m/s^2" algo="const_input" x="10410" y="1660" description="" visible="false" par1="1"/>
+
+    <text_value label="#Time record of the resultant force#" algo="const_input" x="5945" y="25210" description="" visible="false" text=""/>
+
+    <text_value label="#Acceleration-Time Curve#" algo="const_input" x="5630" y="33745" description="" visible="false" text=""/>
+
+    <text_value label="#Velocity-Time Curve#" algo="const_input" x="5525" y="36580" description="" visible="false" text=""/>
+
+    <track1d_value label="1m" algo="const_input" x="13650" y="895" description="" visible="false" par1="1"/>
+
+    <acc1d_value label="0 m/s^2" algo="const_input" x="10410" y="2365" description="" visible="false" par1="0"/>
+
+    <vel1d_value label="0 m/s" algo="const_input" x="12090" y="895" description="" visible="false" par1="0"/>
+
+    <event_value label="e0" algo="event_input" x="18855" y="880" description="" visible="false" par1="0">
+      <acq_tdf sequence="Squat" label="0001~ba~Squat 01.tdf"/>
+    </event_value>
+
+    <track1d_value label="0 m" algo="const_input" x="13665" y="1600" description="" visible="false" par1="0"/>
+
+    <time_value label="300ms" algo="const_input" x="14910" y="895" description="" visible="false" par1="0.3"/>
+
+    <time_value label="-300ms" algo="const_input" x="14910" y="1585" description="" visible="false" par1="-0.3"/>
+
+    <vel1d_value label="1 m/s" algo="const_input" x="12105" y="1585" description="" visible="false" par1="1"/>
+
+    <text_value label="#Shifted SQUATS events and translation offset#" algo="const_input" x="24090" y="4375" description="" visible="false" text=""/>
+
+    <scalar_value label="100" algo="const_input" x="12135" y="2290" description="" visible="false" par1="100"/>
+
+    <freq_value label="50Hz" algo="const_input" x="13665" y="2305" description="" visible="false" par1="50"/>
+
+    <time_value label="1 s" algo="const_input" x="14925" y="2245" description="" visible="false" par1="1"/>
+
+    <power_value label="1 W" algo="const_input" x="18855" y="2200" description="" visible="false" par1="1"/>
+
+    <density_value label="1 Kg/m^3" algo="const_input" x="10775" y="3195" description="" visible="false" par1="1"/>
+
+    <text_value label="#1 m/s^2#" algo="const_input" x="12740" y="3285" description="" visible="false" text=""/>
+
+    <event_value label="e100ms" algo="eventtime" x="18855" y="1540" description="" visible="false">
+      <event_value sequence="Squat" label="e0"/>
+
+      <time_value sequence="_userInput" label="100ms"/>
+    </event_value>
+
+    <freq_value label="freq" algo="frequency" x="9050" y="260" description="" visible="true">
+      <track sequence="Squat" label="r gr"/>
+    </freq_value>
+
+    <scalar_value label="s freq" algo="ratio" x="5765" y="1720" description="" visible="true">
+      <freq_value sequence="Squat" label="freq"/>
+
+      <freq_value sequence="_userInput" label="25 Hz"/>
+    </scalar_value>
+
+    <force label="r gr s" algo="flt_smoothrect" x="6575" y="3145" description="" visible="true">
+      <force sequence="Squat" label="r gr"/>
+
+      <scalar_value sequence="Squat" label="s freq"/>
+    </force>
+
+    <force label="l gr s" algo="flt_smoothrect" x="9035" y="3280" description="" visible="true">
+      <force sequence="Squat" label="l gr"/>
+
+      <scalar_value sequence="Squat" label="s freq"/>
+    </force>
+
+    <force label="GRF" algo="sum" x="7215" y="4180" description="" visible="false">
+      <force sequence="Squat" label="l gr s"/>
+
+      <force sequence="Squat" label="r gr s"/>
+    </force>
+
+    <force1d label="grf -1full" algo="flt_fill" x="7215" y="5010" description="" visible="false">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <force1d_value sequence="_userInput" label="-1 N"/>
+    </force1d>
+
+    <force1d label="grf full" algo="flt_fill" x="14585" y="4825" description="" visible="true">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <force1d_value sequence="_userInput" label="0 N"/>
+    </force1d>
+
+    <event_value label="esqSTART" algo="manual" x="17490" y="5545" description="Start Squatting" visible="true" par1="0" par2="0" par3="0" ev1="" ev2="">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_value>
+
+    <event_value label="esqSTOP" algo="manual" x="17490" y="6184" description="Stop Squatting" visible="true" par1="0" par2="0" par3="0" ev1="" ev2="">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_value>
+
+    <event_value label="esqST" algo="eventtime" x="25695" y="5110" description="" visible="false">
+      <event_value sequence="Squat" label="esqSTART"/>
+
+      <time_value sequence="_userInput" label="-300ms"/>
+    </event_value>
+
+    <event_value label="esqSP" algo="eventtime" x="25695" y="5755" description="" visible="false">
+      <event_value sequence="Squat" label="esqSTOP"/>
+
+      <time_value sequence="_userInput" label="300ms"/>
+    </event_value>
+
+    <time_value label="tOFF" algo="dbl_trigger" x="28530" y="5095" description="" visible="false">
+      <event_value sequence="Squat" label="e0"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+    </time_value>
+
+    <time_value label="tCUT" algo="dbl_trigger" x="28530" y="5725" description="" visible="false">
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </time_value>
+
+    <force1d label="r grf full" algo="flt_fill" x="14570" y="5620" description="" visible="true">
+      <force1d sequence="Squat" label="r gr.Y"/>
+
+      <force1d_value sequence="_userInput" label="0 N"/>
+    </force1d>
+
+    <force1d label="l grf full" algo="flt_fill" x="14585" y="6430" description="" visible="true">
+      <force1d sequence="Squat" label="l gr.Y"/>
+
+      <force1d_value sequence="_userInput" label="0 N"/>
+    </force1d>
+
+    <event_value label="eSTDOFF" algo="manual" x="17490" y="4900" description="Standing Offset" visible="true" par1="0" par2="0" par3="0" ev1="" ev2="">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_value>
+
+    <event_value label="eSTDSTOP" algo="eventtime" x="20835" y="5710" description="" visible="false">
+      <event_value sequence="Squat" label="eSTDOFF"/>
+
+      <time_value sequence="_userInput" label="100ms"/>
+    </event_value>
+
+    <event_value label="eSTDSTART" algo="eventtime" x="20835" y="5065" description="" visible="false">
+      <event_value sequence="Squat" label="eSTDOFF"/>
+
+      <time_value sequence="_userInput" label="-100ms"/>
+    </event_value>
+
+    <force1d_value_band label="fGROFF" algo="dbl_trigger_mean" x="8345" y="25765" description="" visible="false">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <event_value sequence="Squat" label="eSTDSTART"/>
+
+      <event_value sequence="Squat" label="eSTDSTOP"/>
+    </force1d_value_band>
+
+    <force1d_value label="fWEIGHT" algo="scalar_inv" x="15680" y="16380" description="" visible="false">
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+
+      <scalar_value sequence="_userInput" label="9,8"/>
+    </force1d_value>
+
+    <scalar_value label="sWEIGHT" algo="ratio" x="15680" y="17018" description="" visible="false">
+      <force1d_value sequence="Squat" label="fWEIGHT"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_value>
+
+    <scalar label="sGR%BWfull" algo="ratio" x="8340" y="16065" description="R Reaction Force %BW" visible="false">
+      <force1d sequence="Squat" label="grf full"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </scalar>
+
+    <scalar label="sGR%BWt" algo="rect" x="8385" y="16710" description="" visible="false">
+      <scalar sequence="Squat" label="sGR%BWfull"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </scalar>
+
+    <force1d label="fGRo" algo="difference" x="10985" y="25705" description="" visible="false">
+      <force1d sequence="Squat" label="grf full"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </force1d>
+
+    <force1d label="fGRot" algo="rect" x="13160" y="25615" description="" visible="false">
+      <force1d sequence="Squat" label="fGRo"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </force1d>
+
+    <force1d label="fGR0t" algo="shift_track" x="15290" y="25735" description="Net Vertical Reaction Force VS Time" visible="false">
+      <force1d sequence="Squat" label="fGRot"/>
+
+      <time_value sequence="Squat" label="tOFF"/>
+    </force1d>
+
+    <scalar label="sGR%BW" algo="shift_track" x="11630" y="16500" description="Reaction Force %Body Weight VS Time" visible="false">
+      <scalar sequence="Squat" label="sGR%BWt"/>
+
+      <time_value sequence="Squat" label="tOFF"/>
+    </scalar>
+
+    <scalar label="sGR" algo="ratio" x="7125" y="34330" description="" visible="false">
+      <force1d sequence="Squat" label="fGRo"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar>
+
+    <scalar label="sJACC" algo="ratio" x="7125" y="34960" description="" visible="false">
+      <scalar sequence="Squat" label="sGR"/>
+
+      <scalar_value sequence="Squat" label="sWEIGHT"/>
+    </scalar>
+
+    <acc1d label="accJUMPfull" algo="scalar" x="7140" y="35590" description="" visible="false">
+      <acc1d_value sequence="_userInput" label="1m/s^2"/>
+
+      <scalar sequence="Squat" label="sJACC"/>
+    </acc1d>
+
+    <vel1d label="velJUMPd" algo="integral" x="7115" y="37285" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMPfull"/>
+    </vel1d>
+
+    <acc1d label="accJUMPt" algo="rect" x="10530" y="34330" description="" visible="false">
+      <acc1d sequence="Squat" label="accJUMPfull"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </acc1d>
+
+    <acc1d label="accJUMP" algo="shift_track" x="10530" y="35290" description="Jump Acceleration VS Time" visible="false">
+      <acc1d sequence="Squat" label="accJUMPt"/>
+
+      <time_value sequence="Squat" label="tOFF"/>
+    </acc1d>
+
+    <acc1d_cycle label="acccJUMP" algo="dbl_trigger" x="13560" y="34300" description="Jump Acceleration" visible="false">
+      <acc1d sequence="Squat" label="accJUMPfull"/>
+
+      <event_value sequence="Squat" label="esqSTART"/>
+
+      <event_value sequence="Squat" label="esqSTOP"/>
+    </acc1d_cycle>
+
+    <acc1d_value label="acc" algo="value" x="23350" y="25615" description="" visible="false">
+      <acc1d sequence="Squat" label="accJUMPfull"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+    </acc1d_value>
+
+    <acc1d_value label="modacc" algo="norm" x="23350" y="26240" description="" visible="false">
+      <acc1d_value sequence="Squat" label="acc"/>
+    </acc1d_value>
+
+    <scalar_value label="smodacc" algo="ratio" x="23350" y="26865" description="" visible="false">
+      <acc1d_value sequence="Squat" label="modacc"/>
+
+      <acc1d_value sequence="_userInput" label="1m/s^2"/>
+    </scalar_value>
+
+    <acc1d_value label="1 m/s^2" algo="scalar_inv" x="23350" y="27490" description="" visible="false">
+      <acc1d_value sequence="Squat" label="modacc"/>
+
+      <scalar_value sequence="Squat" label="smodacc"/>
+    </acc1d_value>
+
+    <scalar label="srGR%BWfull" algo="ratio" x="8355" y="17865" description="" visible="false">
+      <force1d sequence="Squat" label="r grf full"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </scalar>
+
+    <scalar label="slGR%BWfull" algo="ratio" x="11295" y="18330" description="" visible="false">
+      <force1d sequence="Squat" label="l grf full"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </scalar>
+
+    <scalar_value label="1" algo="const_input" x="14790" y="2965" description="" visible="false" par1="1"/>
+
+    <scalar_value label="2" algo="const_input" x="16290" y="2905" description="" visible="false" par1="2"/>
+
+    <vel1d_value label="velJSTART" algo="value" x="10430" y="35965" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPd"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+    </vel1d_value>
+
+    <vel1d_value label="velJSTOP" algo="value" x="10535" y="36850" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPd"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </vel1d_value>
+
+    <vel1d_value label="velJDelta" algo="difference" x="13760" y="36205" description="" visible="true">
+      <vel1d_value sequence="Squat" label="velJSTOP"/>
+
+      <vel1d_value sequence="Squat" label="velJSTART"/>
+    </vel1d_value>
+
+    <scalar_value label="sJVELelta" algo="ratio" x="13805" y="36985" description="" visible="true">
+      <vel1d_value sequence="Squat" label="velJDelta"/>
+
+      <vel1d_value sequence="_userInput" label="1 m/s"/>
+    </scalar_value>
+
+    <scalar_value label="stCUT" algo="ratio" x="16310" y="36970" description="" visible="true">
+      <time_value sequence="Squat" label="tCUT"/>
+
+      <time_value sequence="_userInput" label="1 s"/>
+    </scalar_value>
+
+    <scalar_value label="sVSLOPE" algo="ratio" x="18425" y="37015" description="" visible="true">
+      <scalar_value sequence="Squat" label="sJVELelta"/>
+
+      <scalar_value sequence="Squat" label="stCUT"/>
+    </scalar_value>
+
+    <acc1d_value label="accSLOPE" algo="scalar" x="21755" y="36925" description="" visible="true">
+      <acc1d_value sequence="Squat" label="1 m/s^2"/>
+
+      <scalar_value sequence="Squat" label="sVSLOPE"/>
+    </acc1d_value>
+
+    <acc1d label="accJUMP0" algo="flt_fill" x="22100" y="35875" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMPt"/>
+
+      <acc1d_value sequence="_userInput" label="0 m/s^2"/>
+    </acc1d>
+
+    <acc1d label="accJUMP0CUT" algo="rect" x="25700" y="35845" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMP0"/>
+
+      <event_value sequence="Squat" label="e0"/>
+
+      <event_value sequence="Squat" label="e100ms"/>
+    </acc1d>
+
+    <acc1d label="accJUMPSLOPECUT" algo="sum" x="24800" y="36985" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMP0CUT"/>
+
+      <acc1d_value sequence="Squat" label="accSLOPE"/>
+    </acc1d>
+
+    <acc1d label="accJUMPSLOPE" algo="flt_fill" x="24800" y="37690" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMPSLOPECUT"/>
+
+      <acc1d_value sequence="Squat" label="accSLOPE"/>
+    </acc1d>
+
+    <acc1d label="accSLOPECUT2" algo="rect" x="29195" y="36670" description="" visible="true">
+      <acc1d sequence="Squat" label="accJUMPSLOPE"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </acc1d>
+
+    <vel1d label="velJUMPOFF" algo="integral" x="33080" y="36865" description="" visible="true">
+      <acc1d sequence="Squat" label="accSLOPECUT2"/>
+    </vel1d>
+
+    <vel1d label="velJUMPdt" algo="rect" x="11990" y="37450" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPd"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </vel1d>
+
+    <vel1d label="velJUMPt" algo="difference" x="36020" y="36550" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPdt"/>
+
+      <vel1d sequence="Squat" label="velJUMPOFF"/>
+    </vel1d>
+
+    <vel1d label="velJUMP0" algo="flt_fill" x="38525" y="36655" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPt"/>
+
+      <vel1d_value sequence="_userInput" label="0 m/s"/>
+    </vel1d>
+
+    <event_mvalue label="Max Vel" algo="manual_lmax" x="9525" y="4300" description="" visible="false" par1="-1000" par2="5" par3="-1000" ev1="esqSTART" ev2="esqSTOP">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+    </event_mvalue>
+
+    <event_mvalue label="Min Vel" algo="manual_lmin" x="9525" y="5050" description="" visible="false" par1="-1000" par2="5" par3="-1000" ev1="esqSTART" ev2="esqSTOP">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+    </event_mvalue>
+
+    <text_value label="#Concentric Rate of Force Development#" algo="const_input" x="5105" y="37840" description="" visible="false" text=""/>
+
+    <text_value label="#Eccentric Rate of Force Development#" algo="const_input" x="18560" y="38245" description="" visible="false" text=""/>
+
+    <vector_value label="v M111" algo="const_input" x="21320" y="880" description="" visible="false" par1="-1" par2="1" par3="1"/>
+
+    <time_value label="0 sec" algo="const_input" x="16880" y="2140" description="" visible="false" par1="0.5"/>
+
+    <vel1d_value label="vel threshiold  Ecc" algo="const_input" x="1025" y="1030" description="" visible="true" par1="-0.02"/>
+
+    <event_mvalue label="START ECC" algo="manual2_ref" x="25275" y="1530" description="" visible="true" par1="1" par2="3" par3="0" ev1="Max Vel" ev2="Min Vel">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+
+      <vel1d_value sequence="_userInput" label="vel threshiold  Ecc"/>
+    </event_mvalue>
+
+    <event_mvalue label="START CON" algo="manual_zero" x="25260" y="2385" description="Start of Ascending Phase - CONCENTRIC" visible="true" par1="0" par2="3" par3="0" ev1="Min Vel" ev2="Max Vel">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+    </event_mvalue>
+
+    <vel1d_value label="VEL THRESHOLD CONC" algo="const_input" x="1010" y="1060" description="" visible="true" par1="0.05"/>
+
+    <track1d label="dJUMPd" algo="integral" x="41805" y="36675" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+    </track1d>
+
+    <text_value label="# Displacement - Time curve #" algo="const_input" x="40635" y="35745" description="" visible="true" text=""/>
+
+    <track1d_value label="dJUMPSTART" algo="value" x="44955" y="36780" description="" visible="true">
+      <track1d sequence="Squat" label="dJUMPd"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+    </track1d_value>
+
+    <track1d_value label="dJUMPSTOP" algo="value" x="44955" y="37515" description="" visible="true">
+      <track1d sequence="Squat" label="dJUMPd"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </track1d_value>
+
+    <track1d_value label="dDelta" algo="difference" x="44955" y="38295" description="" visible="true">
+      <track1d_value sequence="Squat" label="dJUMPSTOP"/>
+
+      <track1d_value sequence="Squat" label="dJUMPSTART"/>
+    </track1d_value>
+
+    <scalar_value label="sdDelta" algo="ratio" x="44955" y="39090" description="" visible="true">
+      <track1d_value sequence="Squat" label="dDelta"/>
+
+      <track1d_value sequence="_userInput" label="1m"/>
+    </scalar_value>
+
+    <scalar_value label="sdSLOPE" algo="ratio" x="48255" y="36750" description="" visible="true">
+      <scalar_value sequence="Squat" label="sdDelta"/>
+
+      <scalar_value sequence="Squat" label="stCUT"/>
+    </scalar_value>
+
+    <track1d_value label="modD" algo="norm" x="26850" y="25980" description="" visible="true">
+      <track1d_value sequence="Squat" label="dJUMPSTART"/>
+    </track1d_value>
+
+    <scalar_value label="smodD" algo="ratio" x="26850" y="26835" description="" visible="true">
+      <track1d_value sequence="Squat" label="modD"/>
+
+      <track1d_value sequence="_userInput" label="1m"/>
+    </scalar_value>
+
+    <track1d_value label="1 m" algo="scalar_inv" x="26850" y="27615" description="" visible="true">
+      <track1d_value sequence="Squat" label="modD"/>
+
+      <scalar_value sequence="Squat" label="smodD"/>
+    </track1d_value>
+
+    <vel1d_value label="modV" algo="norm" x="29550" y="25770" description="" visible="true">
+      <vel1d_value sequence="Squat" label="velJSTART"/>
+    </vel1d_value>
+
+    <scalar_value label="smodV" algo="ratio" x="29550" y="26775" description="" visible="true">
+      <vel1d_value sequence="Squat" label="modV"/>
+
+      <vel1d_value sequence="_userInput" label="1 m/s"/>
+    </scalar_value>
+
+    <vel1d_value label="1 m/s" algo="scalar_inv" x="29550" y="27645" description="" visible="true">
+      <vel1d_value sequence="Squat" label="modV"/>
+
+      <scalar_value sequence="Squat" label="smodV"/>
+    </vel1d_value>
+
+    <vel1d_value label="velSLOPE" algo="scalar" x="48465" y="37680" description="" visible="true">
+      <vel1d_value sequence="Squat" label="1 m/s"/>
+
+      <scalar_value sequence="Squat" label="sdSLOPE"/>
+    </vel1d_value>
+
+    <vel1d label="velJUMP0CUT" algo="rect" x="48435" y="39000" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMP0"/>
+
+      <event_value sequence="Squat" label="e0"/>
+
+      <event_value sequence="Squat" label="e100ms"/>
+    </vel1d>
+
+    <vel1d label="velJUMPSLOPECUT" algo="sum" x="48360" y="40380" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMP0CUT"/>
+
+      <vel1d_value sequence="Squat" label="velSLOPE"/>
+    </vel1d>
+
+    <vel1d label="velJUMPSLOPE" algo="flt_fill" x="48330" y="41535" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPSLOPECUT"/>
+
+      <vel1d_value sequence="Squat" label="velSLOPE"/>
+    </vel1d>
+
+    <vel1d label="velJUMPSLOPECUT2" algo="rect" x="48165" y="42360" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPSLOPE"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </vel1d>
+
+    <track1d label="dJUMPOFF" algo="integral" x="48135" y="43845" description="" visible="true">
+      <vel1d sequence="Squat" label="velJUMPSLOPECUT2"/>
+    </track1d>
+
+    <track1d label="dCoM" algo="difference" x="48180" y="45015" description="" visible="true">
+      <track1d sequence="Squat" label="dJUMPd"/>
+
+      <track1d sequence="Squat" label="dJUMPOFF"/>
+    </track1d>
+
+    <event_mvalue label="eFP ECC" algo="manual_max" x="7560" y="8595" description="Force Peaks Vertical Component - Eccentric" visible="true" par1="0" par2="0" par3="0" ev1="START ECC" ev2="START CON">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_mvalue>
+
+    <event_mvalue label="eFP CON" algo="manual_max" x="7560" y="9285" description="" visible="true" par1="0" par2="0" par3="0" ev1="START CON" ev2="START ECC">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_mvalue>
+
+    <force1d_mvalue label="s GRF max ECC" algo="value" x="7335" y="10095" description="" visible="true">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m gr max ECC" algo="seq_mean" x="10755" y="11190" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+    </force1d_value_band>
+
+    <force1d_value label="max gr max ECC" algo="seq_max" x="14730" y="11160" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+    </force1d_value>
+
+    <force1d_value label="min gr max ECC" algo="seq_min" x="18645" y="11145" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+    </force1d_value>
+
+    <force1d_mvalue label="s rGRF max ECC" algo="value" x="7335" y="11010" description="" visible="true">
+      <force1d sequence="Squat" label="r grf full"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m r gr max ECC" algo="seq_mean" x="10755" y="10155" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+    </force1d_value_band>
+
+    <force1d_value label="max r gr max ECC" algo="seq_max" x="14730" y="10230" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+    </force1d_value>
+
+    <force1d_value label="min r gr max ECC" algo="seq_min" x="18645" y="10230" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+    </force1d_value>
+
+    <scalar_mvalue label="r gr max ratio ECC" algo="ratio" x="22515" y="11265" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="r gr max ECC ratio perc" algo="scalar" x="17625" y="19935" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max ratio ECC"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m r gr max ECC ratio perc" algo="seq_mean" x="21915" y="20025" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max ECC ratio perc"/>
+    </scalar_value_band>
+
+    <force1d_mvalue label="s lGRF max ECC" algo="value" x="7335" y="11835" description="" visible="true">
+      <force1d sequence="Squat" label="l grf full"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m l gr max ECC" algo="seq_mean" x="10755" y="11895" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+    </force1d_value_band>
+
+    <force1d_value label="max l gr max ECC" algo="seq_max" x="14730" y="11970" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+    </force1d_value>
+
+    <force1d_value label="min l gr max ECC" algo="seq_min" x="18645" y="11970" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+    </force1d_value>
+
+    <scalar_mvalue label="l gr max ratio ECC" algo="ratio" x="22515" y="10335" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="l gr max ECC ratio perc" algo="scalar" x="17655" y="20700" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max ratio ECC"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m l gr max ECC ratio perc" algo="seq_mean" x="21915" y="20940" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max ECC ratio perc"/>
+    </scalar_value_band>
+
+    <time_mvalue label="T ECC" algo="dbl_trigger" x="6785" y="28690" description="" visible="true">
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </time_mvalue>
+
+    <force1d_mvalue label="fCFSTART" algo="value" x="6980" y="38515" description="" visible="false">
+      <force1d sequence="Squat" label="grf full"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="fCFDelta" algo="difference" x="6980" y="39138" description="" visible="false">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="fCFSTART"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="rfCFSTART" algo="value" x="6980" y="39895" description="" visible="true">
+      <force1d sequence="Squat" label="r grf full"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="rfCFDelta" algo="difference" x="6980" y="40518" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="rfCFSTART"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="lfCFSTART" algo="value" x="7040" y="41365" description="" visible="true">
+      <force1d sequence="Squat" label="l grf full"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="lfCFDelta" algo="difference" x="7040" y="41988" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="lfCFSTART"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="fEFSTART" algo="value" x="20285" y="39055" description="" visible="false">
+      <force1d sequence="Squat" label="grf full"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="fEFDelta" algo="difference" x="20285" y="39700" description="" visible="false">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="fEFSTART"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="frEFSTART" algo="value" x="20270" y="40405" description="" visible="true">
+      <force1d sequence="Squat" label="r grf full"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="frEFDelta" algo="difference" x="20285" y="41095" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="frEFSTART"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="flEFSTART" algo="value" x="20270" y="41950" description="" visible="true">
+      <force1d sequence="Squat" label="l grf full"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="flEFDelta" algo="difference" x="20285" y="42640" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+
+      <force1d_mvalue sequence="Squat" label="flEFSTART"/>
+    </force1d_mvalue>
+
+    <time_mvalue label="tCFDelta" algo="dbl_trigger" x="10010" y="38515" description="" visible="false">
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </time_mvalue>
+
+    <scalar_mvalue label="sTCFDelta" algo="ratio" x="10010" y="39160" description="" visible="false">
+      <time_mvalue sequence="Squat" label="tCFDelta"/>
+
+      <time_value sequence="_userInput" label="1 s"/>
+    </scalar_mvalue>
+
+    <time_mvalue label="tEFDelta" algo="dbl_trigger" x="23360" y="39085" description="" visible="false">
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </time_mvalue>
+
+    <scalar_mvalue label="sTEFDelta" algo="ratio" x="23375" y="39730" description="" visible="false">
+      <time_mvalue sequence="Squat" label="tEFDelta"/>
+
+      <time_value sequence="_userInput" label="1 s"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="sCFDelta" algo="ratio" x="12785" y="38515" description="" visible="false">
+      <force1d_mvalue sequence="Squat" label="fCFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="sCON-RFD" algo="ratio" x="12785" y="39145" description="Concentric Rate of Force Developement" visible="false">
+      <scalar_mvalue sequence="Squat" label="sCFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTCFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m sCON-RFD" algo="seq_mean" x="16295" y="39085" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="sCON-RFD"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="srCFDelta" algo="ratio" x="12830" y="39940" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="rfCFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="srCON-RFD" algo="ratio" x="12860" y="40570" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srCFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTCFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m srCON-RFD" algo="seq_mean" x="16340" y="40075" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srCON-RFD"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="r CON-RFD ratio" algo="ratio" x="6965" y="42780" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srCON-RFD"/>
+
+      <scalar_mvalue sequence="Squat" label="sCON-RFD"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="r CON-RFD ratio perc" algo="scalar" x="12890" y="43840" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r CON-RFD ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m r CON-RFD ratio perc" algo="seq_mean" x="16730" y="43915" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r CON-RFD ratio perc"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="slCFDelta" algo="ratio" x="12890" y="41275" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="lfCFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="slCON-RFD" algo="ratio" x="12890" y="41905" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slCFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTCFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m slCON-RFD" algo="seq_mean" x="16355" y="41005" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slCON-RFD"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="l CON-RFD ratio" algo="ratio" x="12890" y="43240" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slCON-RFD"/>
+
+      <scalar_mvalue sequence="Squat" label="sCON-RFD"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="l CON-RFD ratio perc" algo="scalar" x="12860" y="44485" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l CON-RFD ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m l CON-RFD ratio perc" algo="seq_mean" x="16760" y="44590" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l CON-RFD ratio perc"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="sEFDelta" algo="ratio" x="26465" y="39115" description="" visible="false">
+      <force1d_mvalue sequence="Squat" label="fEFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="sECC-RFD2" algo="ratio" x="26480" y="39760" description="Eccentric Rate of Force Developement" visible="false">
+      <scalar_mvalue sequence="Squat" label="sEFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTEFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m sECC-RFD2" algo="seq_mean" x="30965" y="39220" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="sECC-RFD2"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="srEFDelta" algo="ratio" x="26495" y="40585" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="frEFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="srECC-RFD2" algo="ratio" x="26510" y="41230" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srEFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTEFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="r ECC-RFD ratio" algo="ratio" x="26555" y="43195" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srECC-RFD2"/>
+
+      <scalar_mvalue sequence="Squat" label="sECC-RFD2"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="r ECC-RFD ratio perc" algo="scalar" x="26555" y="44455" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r ECC-RFD ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m srECC-RFD" algo="seq_mean" x="30935" y="40135" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="srECC-RFD2"/>
+    </scalar_value_band>
+
+    <scalar_value_band label="m r ECC-RFD ratio perc" algo="seq_mean" x="30905" y="44440" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r ECC-RFD ratio perc"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="slEFDelta" algo="ratio" x="26525" y="41905" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="flEFDelta"/>
+
+      <force1d_value sequence="_userInput" label="1 N"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="slECC-RFD2" algo="ratio" x="26540" y="42550" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slEFDelta"/>
+
+      <scalar_mvalue sequence="Squat" label="sTEFDelta"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="l ECC-RFD ratio" algo="ratio" x="26555" y="43855" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slECC-RFD2"/>
+
+      <scalar_mvalue sequence="Squat" label="sECC-RFD2"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="l ECC-RFD ratio perc" algo="scalar" x="26525" y="45100" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l ECC-RFD ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m slECC-RFD" algo="seq_mean" x="30950" y="41065" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="slECC-RFD2"/>
+    </scalar_value_band>
+
+    <scalar_value_band label="m l ECC-RFD ratio perc" algo="seq_mean" x="30935" y="45115" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l ECC-RFD ratio perc"/>
+    </scalar_value_band>
+
+    <event_mvalue label="eRFP ECC ML" algo="manual_max" x="11310" y="8595" description="" visible="true" par1="0" par2="0" par3="0" ev1="START ECC" ev2="START CON">
+      <force1d sequence="Squat" label="r gr s.X"/>
+    </event_mvalue>
+
+    <force1d label="l gr sX" algo="scalar" x="14925" y="8205" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.X"/>
+
+      <scalar_value sequence="_userInput" label="-1"/>
+    </force1d>
+
+    <event_mvalue label="eLFP ECC ML" algo="manual_max" x="17655" y="8130" description="" visible="true" par1="0" par2="0" par3="0" ev1="START ECC" ev2="START CON">
+      <force1d sequence="Squat" label="l gr sX"/>
+    </event_mvalue>
+
+    <scalar_mvalue label="s GRF max ECC/BW" algo="ratio" x="8395" y="18675" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="s rGRF max ECC /BW" algo="value" x="8490" y="19470" description="" visible="true">
+      <scalar sequence="Squat" label="srGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="ms rGRF max ECC /BW" algo="seq_mean" x="13050" y="19410" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s rGRF max ECC /BW"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="s lGRF max ECC /BW" algo="value" x="8490" y="21015" description="" visible="true">
+      <scalar sequence="Squat" label="slGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="ms lGRF max ECC /BW" algo="seq_mean" x="13050" y="20970" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s lGRF max ECC /BW"/>
+    </scalar_value_band>
+
+    <time_value label="T" algo="time_track" x="31125" y="4635" description="" visible="true">
+      <force1d sequence="Squat" label="r gr.X"/>
+    </time_value>
+
+    <event_value label="eEND" algo="eventtime" x="31080" y="6015" description="" visible="true">
+      <event_value sequence="Squat" label="e0"/>
+
+      <time_value sequence="Squat" label="T"/>
+    </event_value>
+
+    <force1d label="fGRfull" algo="rect" x="13160" y="26835" description="" visible="true">
+      <force1d sequence="Squat" label="grf full"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </force1d>
+
+    <force1d label="fGRfullt" algo="shift_track" x="15330" y="27045" description="Vertical Reaction Force VS Time" visible="true">
+      <force1d sequence="Squat" label="fGRfull"/>
+
+      <time_value sequence="Squat" label="tOFF"/>
+    </force1d>
+
+    <force1d label="fGRMLfull" algo="rect" x="18120" y="26880" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_value sequence="Squat" label="esqST"/>
+
+      <event_value sequence="Squat" label="esqSP"/>
+    </force1d>
+
+    <scalar_mvalue label="s GRF max ECC /BW" algo="value" x="8490" y="20280" description="" visible="true">
+      <scalar sequence="Squat" label="sGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP ECC"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="ms GRF max ECC /BW" algo="seq_mean" x="13050" y="20190" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s GRF max ECC /BW"/>
+    </scalar_value_band>
+
+    <scalar_value label="#squats" algo="nseq" x="6840" y="24645" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s rGRF max ECC /BW"/>
+    </scalar_value>
+
+    <scalar_value label="sT" algo="ratio" x="18990" y="3330" description="" visible="true">
+      <time_value sequence="Squat" label="T"/>
+
+      <time_value sequence="_userInput" label="1 s"/>
+    </scalar_value>
+
+    <time_value label="1 s" algo="scalar_inv" x="21195" y="3345" description="" visible="true">
+      <time_value sequence="Squat" label="T"/>
+
+      <scalar_value sequence="Squat" label="sT"/>
+    </time_value>
+
+    <time_value label="last squat Time" algo="scalar" x="10740" y="24840" description="" visible="true">
+      <time_value sequence="Squat" label="1 s"/>
+
+      <scalar_value sequence="Squat" label="#squats"/>
+    </time_value>
+
+    <event_value label="eLASTSQUAT" algo="eventtime" x="14010" y="24315" description="" visible="true">
+      <event_value sequence="Squat" label="e0"/>
+
+      <time_value sequence="Squat" label="last squat Time"/>
+    </event_value>
+
+    <event_value label="e1" algo="event_input" x="22335" y="1920" description="" visible="true" par1="1">
+      <acq_tdf sequence="Squat" label="0001~ba~Squat 01.tdf"/>
+    </event_value>
+
+    <event_mvalue label="ev squats seq" algo="event2evntime" x="17220" y="24090" description="" visible="true">
+      <event_value sequence="Squat" label="e1"/>
+
+      <event_value sequence="Squat" label="eLASTSQUAT"/>
+
+      <time_value sequence="Squat" label="1 s"/>
+    </event_mvalue>
+
+    <force1d label="s GRF max ECC values" algo="track_itemevn" x="27255" y="10065" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max ECC"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <force1d label="s rGRF max ECC values" algo="track_itemevn" x="27255" y="11310" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max ECC"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <force1d label="s lGRF max ECC values" algo="track_itemevn" x="27070" y="12465" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max ECC"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <scalar label="s r gr max ECC ratio perc values" algo="track_itemevn" x="26745" y="18795" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max ECC ratio perc"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <scalar label="s l gr max ECC ratio perc values" algo="track_itemevn" x="26745" y="20175" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max ECC ratio perc"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <scalar label="s GRF max ECC/BW values" algo="track_itemevn" x="26745" y="17460" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s GRF max ECC /BW"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <force1d_mvalue label="s GRF max CON" algo="value" x="7185" y="12930" description="" visible="true">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="s rGRF max CON" algo="value" x="7185" y="13845" description="" visible="true">
+      <force1d sequence="Squat" label="r grf full"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="s lGRF max CON" algo="value" x="7185" y="14670" description="" visible="true">
+      <force1d sequence="Squat" label="l grf full"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m r gr max CON" algo="seq_mean" x="10980" y="13005" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max CON"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m gr max CON" algo="seq_mean" x="10980" y="14040" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m l gr max CON" algo="seq_mean" x="10980" y="14745" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max CON"/>
+    </force1d_value_band>
+
+    <force1d_value label="max gr max CON" algo="seq_max" x="14730" y="14010" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+    </force1d_value>
+
+    <force1d_value label="max r gr max CON" algo="seq_max" x="14730" y="13080" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max CON"/>
+    </force1d_value>
+
+    <force1d_value label="max l gr max CON" algo="seq_max" x="14730" y="14820" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max CON"/>
+    </force1d_value>
+
+    <force1d_value label="min r gr max CON" algo="seq_min" x="18645" y="13080" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max CON"/>
+    </force1d_value>
+
+    <force1d_value label="min gr max CON" algo="seq_min" x="18645" y="13995" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+    </force1d_value>
+
+    <force1d_value label="min l gr max CON" algo="seq_min" x="18645" y="14820" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max CON"/>
+    </force1d_value>
+
+    <scalar_mvalue label="l gr max ratio CON" algo="ratio" x="22590" y="12915" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max CON"/>
+
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="r gr max ratio CON" algo="ratio" x="22590" y="13845" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max CON"/>
+
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+    </scalar_mvalue>
+
+    <force1d label="s GRF max CON values" algo="track_itemevn" x="27045" y="13860" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <force1d label="s rGRF max CON values" algo="track_itemevn" x="27045" y="15105" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s rGRF max CON"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <force1d label="s lGRF max CON values" algo="track_itemevn" x="27045" y="16275" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s lGRF max CON"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </force1d>
+
+    <scalar_mvalue label="s GRF max CON/BW" algo="ratio" x="8490" y="21780" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="s GRF max CON"/>
+
+      <force1d_value_band sequence="Squat" label="fGROFF"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="s rGRF max CON /BW" algo="value" x="8490" y="22620" description="" visible="true">
+      <scalar sequence="Squat" label="srGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="s lGRF max CON /BW" algo="value" x="8490" y="24165" description="" visible="true">
+      <scalar sequence="Squat" label="slGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="ms rGRF max CON /BW" algo="seq_mean" x="13050" y="21990" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s rGRF max CON /BW"/>
+    </scalar_value_band>
+
+    <scalar_value_band label="ms lGRF max CON /BW" algo="seq_mean" x="13050" y="23550" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s lGRF max CON /BW"/>
+    </scalar_value_band>
+
+    <scalar_mvalue label="r gr max CON ratio perc" algo="scalar" x="17580" y="21900" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max ratio CON"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="l gr max CON ratio perc" algo="scalar" x="17610" y="22665" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max ratio CON"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="m r gr max CON ratio perc" algo="seq_mean" x="21915" y="22005" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max CON ratio perc"/>
+    </scalar_value_band>
+
+    <scalar_value_band label="m l gr max CON ratio perc" algo="seq_mean" x="21915" y="22920" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max CON ratio perc"/>
+    </scalar_value_band>
+
+    <scalar label="s r gr max CON ratio perc values" algo="track_itemevn" x="26775" y="22935" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="r gr max CON ratio perc"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <scalar label="s l gr max CON ratio perc values" algo="track_itemevn" x="26775" y="24315" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="l gr max CON ratio perc"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <scalar label="s rGRF max CON/BW values" algo="track_itemevn" x="31290" y="21690" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s rGRF max CON /BW"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <scalar label="s lGRF max CON/BW values" algo="track_itemevn" x="36585" y="21615" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s lGRF max CON /BW"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <force1d_mvalue label="sRFP ECC ML" algo="value" x="32010" y="7500" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_mvalue sequence="Squat" label="eRFP ECC ML"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mRFP ECC ML" algo="seq_mean" x="35550" y="7605" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sRFP ECC ML"/>
+    </force1d_value_band>
+
+    <force1d_mvalue label="sLFP ECC ML" algo="value" x="32010" y="8265" description="" visible="true">
+      <force1d sequence="Squat" label="l gr sX"/>
+
+      <event_mvalue sequence="Squat" label="eLFP ECC ML"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mLFP ECC ML" algo="seq_mean" x="35550" y="8370" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sLFP ECC ML"/>
+    </force1d_value_band>
+
+    <event_mvalue label="eRFP CON ML" algo="manual_max" x="11325" y="9300" description="" visible="true" par1="0" par2="0" par3="0" ev1="START CON" ev2="START ECC">
+      <force1d sequence="Squat" label="r gr s.X"/>
+    </event_mvalue>
+
+    <event_mvalue label="eLFP CON ML" algo="manual_max" x="17655" y="9105" description="" visible="true" par1="0" par2="0" par3="0" ev1="START CON" ev2="START ECC">
+      <force1d sequence="Squat" label="l gr sX"/>
+    </event_mvalue>
+
+    <force1d_mvalue label="sRFP CON ML" algo="value" x="32010" y="9030" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_mvalue sequence="Squat" label="eRFP CON ML"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="sLFP CON ML" algo="value" x="32010" y="9825" description="" visible="true">
+      <force1d sequence="Squat" label="l gr sX"/>
+
+      <event_mvalue sequence="Squat" label="eLFP CON ML"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mRFP CON ML" algo="seq_mean" x="35550" y="9135" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sRFP CON ML"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="mLFP CON ML" algo="seq_mean" x="35550" y="9900" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sLFP CON ML"/>
+    </force1d_value_band>
+
+    <event_mvalue label="eRFP ECC AP" algo="manual_max" x="43470" y="7770" description="" visible="true" par1="0" par2="0" par3="0" ev1="START ECC" ev2="START CON">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+    </event_mvalue>
+
+    <event_mvalue label="eRFP CON AP" algo="manual_max" x="43470" y="8760" description="" visible="true" par1="0" par2="0" par3="0" ev1="START CON" ev2="START ECC">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+    </event_mvalue>
+
+    <force1d_mvalue label="sRFP ECC AP" algo="value" x="47280" y="7995" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="eRFP ECC AP"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mRFP ECC AP" algo="seq_mean" x="50820" y="8100" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sRFP ECC AP"/>
+    </force1d_value_band>
+
+    <force1d_mvalue label="sRFP CON AP" algo="value" x="47280" y="8805" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="eRFP CON AP"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mRFP CON AP" algo="seq_mean" x="50820" y="8910" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sRFP CON AP"/>
+    </force1d_value_band>
+
+    <event_mvalue label="eLFP ECC AP" algo="manual_max" x="43470" y="9525" description="" visible="true" par1="0" par2="0" par3="0" ev1="START ECC" ev2="START CON">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+    </event_mvalue>
+
+    <event_mvalue label="eLFP CON AP" algo="manual_max" x="43470" y="10515" description="" visible="true" par1="0" par2="0" par3="0" ev1="START CON" ev2="START ECC">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+    </event_mvalue>
+
+    <force1d_mvalue label="sLFP ECC AP" algo="value" x="47280" y="9915" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="eLFP ECC AP"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="sLFP CON AP" algo="value" x="47280" y="10725" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="eLFP CON AP"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="mLFP ECC AP" algo="seq_mean" x="50820" y="10020" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sLFP ECC AP"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="mLFP CON AP" algo="seq_mean" x="50820" y="10830" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="sLFP CON AP"/>
+    </force1d_value_band>
+
+    <vector_value label="M111" algo="const_input" x="3660" y="5490" description="" visible="true" par1="-1" par2="1" par3="1"/>
+
+    <force label="l gr s1" algo="vector3d" x="3750" y="4515" description="" visible="true">
+      <force sequence="Squat" label="l gr s"/>
+
+      <vector_value sequence="_userInput" label="M111"/>
+    </force>
+
+    <force1d_mvalue label="RFP min ECC ML" algo="dbl_trigger_min" x="31995" y="10710" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="RFP min CON ML" algo="dbl_trigger_min" x="32010" y="11895" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m RFP min ECC ML" algo="seq_mean" x="35565" y="10800" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="RFP min ECC ML"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m RFP min CON ML" algo="seq_mean" x="35610" y="12105" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="RFP min CON ML"/>
+    </force1d_value_band>
+
+    <force1d_mvalue label="LFP min ECC ML" algo="dbl_trigger_min" x="31905" y="13455" description="" visible="true">
+      <force1d sequence="Squat" label="l gr sX"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="LFP min CON ML" algo="dbl_trigger_min" x="31920" y="14640" description="" visible="true">
+      <force1d sequence="Squat" label="l gr sX"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m LFP min ECC ML" algo="seq_mean" x="35700" y="13605" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="LFP min ECC ML"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m LFP min CON ML" algo="seq_mean" x="35670" y="14850" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="LFP min CON ML"/>
+    </force1d_value_band>
+
+    <force1d_mvalue label="RFP min ECC AP" algo="dbl_trigger_min" x="43485" y="12120" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="RFP min CON AP" algo="dbl_trigger_min" x="43500" y="13305" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m RFP min ECC AP" algo="seq_mean" x="47055" y="12210" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="RFP min ECC AP"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m RFP min CON AP" algo="seq_mean" x="47100" y="13515" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="RFP min CON AP"/>
+    </force1d_value_band>
+
+    <force1d_mvalue label="LFP min ECC AP" algo="dbl_trigger_min" x="43395" y="14865" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </force1d_mvalue>
+
+    <force1d_mvalue label="LFP min CON AP" algo="dbl_trigger_min" x="43410" y="16050" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mvalue>
+
+    <force1d_value_band label="m LFP min ECC AP" algo="seq_mean" x="47190" y="15015" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="LFP min ECC AP"/>
+    </force1d_value_band>
+
+    <force1d_value_band label="m LFP min CON AP" algo="seq_mean" x="47160" y="16260" description="" visible="true">
+      <force1d_mvalue sequence="Squat" label="LFP min CON AP"/>
+    </force1d_value_band>
+
+    <freq_value label="20 Hz" algo="const_input" x="1600" y="220" description="" visible="true" par1="20"/>
+
+    <freq_value label="450 Hz" algo="const_input" x="2991" y="220" description="" visible="true" par1="450"/>
+
+    <force1d_mcycle label="fcs RGR AP" algo="trigger" x="39450" y="7590" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mcycle>
+
+    <force1d_cycle_band label="fcm RGR AP" algo="cseq_mean" x="39450" y="8715" description="" visible="true">
+      <force1d_mcycle sequence="Squat" label="fcs RGR AP"/>
+    </force1d_cycle_band>
+
+    <force1d_mcycle label="fcs LGR AP" algo="trigger" x="39450" y="9750" description="" visible="true">
+      <force1d sequence="Squat" label="l gr s.Z"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mcycle>
+
+    <force1d_cycle_band label="fcm LGR AP" algo="cseq_mean" x="39450" y="10905" description="" visible="true">
+      <force1d_mcycle sequence="Squat" label="fcs LGR AP"/>
+    </force1d_cycle_band>
+
+    <scalar_mcycle label="scGR%BW" algo="trigger" x="11895" y="17265" description="" visible="true">
+      <scalar sequence="Squat" label="sGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </scalar_mcycle>
+
+    <scalar_cycle_band label="scmGR%BW" algo="cseq_mean" x="14280" y="17880" description="" visible="true">
+      <scalar_mcycle sequence="Squat" label="scGR%BW"/>
+    </scalar_cycle_band>
+
+    <time_mvalue label="T SQUAT" algo="trigger" x="8955" y="27825" description="" visible="true">
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </time_mvalue>
+
+    <scalar_mvalue label="T ECC ratio" algo="ratio" x="9440" y="28810" description="" visible="true">
+      <time_mvalue sequence="Squat" label="T ECC"/>
+
+      <time_mvalue sequence="Squat" label="T SQUAT"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="T ECC ratio perc" algo="scalar" x="12590" y="28810" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="T ECC ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="M T ECC ratio perc" algo="seq_mean" x="16385" y="28705" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="T ECC ratio perc"/>
+    </scalar_value_band>
+
+    <time_mvalue label="T Squat" algo="trigger" x="12675" y="7140" description="" visible="true">
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </time_mvalue>
+
+    <time_value_band label="mSquat Time" algo="seq_mean" x="15465" y="7185" description="" visible="true">
+      <time_mvalue sequence="Squat" label="T Squat"/>
+    </time_value_band>
+
+    <time_mvalue label="T CONC" algo="dbl_trigger" x="6785" y="29590" description="" visible="true">
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </time_mvalue>
+
+    <scalar_mvalue label="T CONC ratio" algo="ratio" x="9440" y="29530" description="" visible="true">
+      <time_mvalue sequence="Squat" label="T CONC"/>
+
+      <time_mvalue sequence="Squat" label="T SQUAT"/>
+    </scalar_mvalue>
+
+    <scalar_mvalue label="T CONC ratio perc" algo="scalar" x="12590" y="29665" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="T CONC ratio"/>
+
+      <scalar_value sequence="_userInput" label="100"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="M T CONC ratio perc" algo="seq_mean" x="16340" y="29575" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="T CONC ratio perc"/>
+    </scalar_value_band>
+
+    <force1d_mcycle label="fcs RGR ML" algo="trigger" x="21150" y="7125" description="" visible="true">
+      <force1d sequence="Squat" label="r gr s.X"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mcycle>
+
+    <force1d_cycle_band label="fcm RGR ML" algo="cseq_mean" x="20925" y="9075" description="" visible="true">
+      <force1d_mcycle sequence="Squat" label="fcs RGR ML"/>
+    </force1d_cycle_band>
+
+    <force1d_mcycle label="fcs LGR ML" algo="trigger" x="23865" y="7125" description="" visible="true">
+      <force1d sequence="Squat" label="l gr sX"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mcycle>
+
+    <force1d_cycle_band label="fcm LGR ML" algo="cseq_mean" x="24195" y="9060" description="" visible="true">
+      <force1d_mcycle sequence="Squat" label="fcs LGR ML"/>
+    </force1d_cycle_band>
+
+    <force1d_mcycle label="cfGR" algo="trigger" x="19515" y="25785" description="" visible="true">
+      <force1d sequence="Squat" label="GRF.Y"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force1d_mcycle>
+
+    <force1d_cycle_band label="cmfGR" algo="cseq_mean" x="20250" y="24975" description="" visible="true">
+      <force1d_mcycle sequence="Squat" label="cfGR"/>
+    </force1d_cycle_band>
+
+    <event_mcycle label="enSTART CON" algo="trigger" x="20160" y="29235" description="" visible="true">
+      <event_mvalue sequence="Squat" label="START CON"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </event_mcycle>
+
+    <event_cycle_band label="enmSTARTCON" algo="cseq_mean" x="20265" y="26520" description="" visible="true">
+      <event_mcycle sequence="Squat" label="enSTART CON"/>
+    </event_cycle_band>
+
+    <force_mcycle label="scLGRF" algo="trigger" x="5745" y="6585" description="" visible="true">
+      <force sequence="Squat" label="l gr s1"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force_mcycle>
+
+    <force_cycle_band label="cmLGRF" algo="cseq_mean" x="9930" y="6540" description="" visible="true">
+      <force_mcycle sequence="Squat" label="scLGRF"/>
+    </force_cycle_band>
+
+    <force_mcycle label="scRGRF" algo="trigger" x="5505" y="7530" description="" visible="true">
+      <force sequence="Squat" label="r gr s"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force_mcycle>
+
+    <force_cycle_band label="cmRGRF" algo="cseq_mean" x="9900" y="7185" description="" visible="true">
+      <force_mcycle sequence="Squat" label="scRGRF"/>
+    </force_cycle_band>
+
+    <force_mcycle label="scGRF" algo="trigger" x="5475" y="8760" description="" visible="true">
+      <force sequence="Squat" label="GRF"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </force_mcycle>
+
+    <force_cycle_band label="cmGRF" algo="cseq_mean" x="9900" y="7815" description="" visible="true">
+      <force_mcycle sequence="Squat" label="scGRF"/>
+    </force_cycle_band>
+
+    <track label="Right-hip i" algo="flt_spline" x="9365" y="120780" description="" visible="true">
+      <track sequence="Squat" label="Right-hip"/>
+    </track>
+
+    <track label="Left-hip i" algo="flt_spline" x="9365" y="122625" description="" visible="true">
+      <track sequence="Squat" label="Left-hip"/>
+    </track>
+
+    <track label="Right-knee i" algo="flt_spline" x="12755" y="120810" description="" visible="true">
+      <track sequence="Squat" label="Right-knee"/>
+    </track>
+
+    <track label="Left-knee i" algo="flt_spline" x="12755" y="122655" description="" visible="true">
+      <track sequence="Squat" label="Left-knee"/>
+    </track>
+
+    <track label="Right-ankle i" algo="flt_spline" x="16020" y="120795" description="" visible="true">
+      <track sequence="Squat" label="Right-ankle"/>
+    </track>
+
+    <track label="Left-ankle i" algo="flt_spline" x="16020" y="122640" description="" visible="true">
+      <track sequence="Squat" label="Left-ankle"/>
+    </track>
+
+    <track label="Right-shoulder i" algo="flt_spline" x="6530" y="120780" description="" visible="true">
+      <track sequence="Squat" label="Right-shoulder"/>
+    </track>
+
+    <track label="Left-shoulder i" algo="flt_spline" x="6530" y="122625" description="" visible="true">
+      <track sequence="Squat" label="Left-shoulder"/>
+    </track>
+
+    <scalar_value label="3" algo="const_input" x="2030" y="110020" description="" visible="true" par1="3"/>
+
+    <track label="Right-shoulder s" algo="flt_smoothtriang" x="6530" y="121650" description="" visible="true">
+      <track sequence="Squat" label="Right-shoulder i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Right-hip s" algo="flt_smoothtriang" x="9365" y="121650" description="" visible="true">
+      <track sequence="Squat" label="Right-hip i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Right-knee s" algo="flt_smoothtriang" x="12755" y="121680" description="" visible="true">
+      <track sequence="Squat" label="Right-knee i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <vector label="v R thigh" algo="tracks" x="6530" y="124560" description="" visible="true">
+      <track sequence="Squat" label="Right-hip s"/>
+
+      <track sequence="Squat" label="Right-knee s"/>
+    </vector>
+
+    <track label="Right-ankle s" algo="flt_smoothtriang" x="16020" y="121665" description="" visible="true">
+      <track sequence="Squat" label="Right-ankle i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <vector label="v R leg" algo="tracks" x="9365" y="124650" description="" visible="true">
+      <track sequence="Squat" label="Right-knee s"/>
+
+      <track sequence="Squat" label="Right-ankle s"/>
+    </vector>
+
+    <angle label="a R knee" algo="versors" x="12755" y="124620" description="" visible="true">
+      <vector sequence="Squat" label="v R thigh"/>
+
+      <vector sequence="Squat" label="v R leg"/>
+    </angle>
+
+    <track label="Left-shoulder s" algo="flt_smoothtriang" x="6530" y="123495" description="" visible="true">
+      <track sequence="Squat" label="Left-shoulder i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Left-hip s" algo="flt_smoothtriang" x="9365" y="123495" description="" visible="true">
+      <track sequence="Squat" label="Left-hip i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Left-knee s" algo="flt_smoothtriang" x="12755" y="123525" description="" visible="true">
+      <track sequence="Squat" label="Left-knee i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <vector label="v L thigh" algo="tracks" x="6530" y="125595" description="" visible="true">
+      <track sequence="Squat" label="Left-hip s"/>
+
+      <track sequence="Squat" label="Left-knee s"/>
+    </vector>
+
+    <track label="Left-ankle s" algo="flt_smoothtriang" x="16020" y="123510" description="" visible="true">
+      <track sequence="Squat" label="Left-ankle i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <vector label="v L leg" algo="tracks" x="9365" y="125685" description="" visible="true">
+      <track sequence="Squat" label="Left-knee s"/>
+
+      <track sequence="Squat" label="Left-ankle s"/>
+    </vector>
+
+    <angle label="a L knee" algo="versors" x="12755" y="125655" description="" visible="true">
+      <vector sequence="Squat" label="v L thigh"/>
+
+      <vector sequence="Squat" label="v L leg"/>
+    </angle>
+
+    <scalar_value label="half" algo="const_input" x="2295" y="121875" description="" visible="true" par1="0.5"/>
+
+    <track label="Mid-shoulder" algo="tracks" x="6405" y="128730" description="" visible="true">
+      <track sequence="Squat" label="Right-shoulder s"/>
+
+      <track sequence="Squat" label="Left-shoulder s"/>
+
+      <scalar_value sequence="_userInput" label="half"/>
+    </track>
+
+    <track label="Mid-hip" algo="tracks" x="10155" y="128820" description="" visible="true">
+      <track sequence="Squat" label="Right-hip s"/>
+
+      <track sequence="Squat" label="Left-hip s"/>
+
+      <scalar_value sequence="_userInput" label="half"/>
+    </track>
+
+    <vector label="v Trunk" algo="tracks" x="6735" y="130155" description="" visible="true">
+      <track sequence="Squat" label="Mid-hip"/>
+
+      <track sequence="Squat" label="Mid-shoulder"/>
+    </vector>
+
+    <angle label="a Trunk FE" algo="versors" x="10065" y="130230" description="" visible="true">
+      <vector sequence="Squat" label="v Trunk"/>
+
+      <vector_value sequence="Squat" label="LAB.J"/>
+    </angle>
+
+    <track label="Right-heel i" algo="flt_spline" x="19455" y="120840" description="" visible="true">
+      <track sequence="Squat" label="Right-heel"/>
+    </track>
+
+    <track label="Right-heel s" algo="flt_smoothtriang" x="19455" y="121710" description="" visible="true">
+      <track sequence="Squat" label="Right-heel i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Right-small toe i" algo="flt_spline" x="22950" y="120990" description="" visible="true">
+      <track sequence="Squat" label="Right-small_toe"/>
+    </track>
+
+    <track label="Right-small toe s" algo="flt_smoothtriang" x="22950" y="121860" description="" visible="true">
+      <track sequence="Squat" label="Right-small toe i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Left-small toe i" algo="flt_spline" x="22950" y="122835" description="" visible="true">
+      <track sequence="Squat" label="Left-small_toe"/>
+    </track>
+
+    <track label="Left-small toe s" algo="flt_smoothtriang" x="22950" y="123705" description="" visible="true">
+      <track sequence="Squat" label="Left-small toe i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Right-big toe i" algo="flt_spline" x="27315" y="120975" description="" visible="true">
+      <track sequence="Squat" label="Right-big_toe"/>
+    </track>
+
+    <track label="Right-big toe s" algo="flt_smoothtriang" x="27315" y="121845" description="" visible="true">
+      <track sequence="Squat" label="Right-big toe i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Left-big toe i" algo="flt_spline" x="27315" y="122820" description="" visible="true">
+      <track sequence="Squat" label="Left-big_toe"/>
+    </track>
+
+    <track label="Left-big toe s" algo="flt_smoothtriang" x="27315" y="123690" description="" visible="true">
+      <track sequence="Squat" label="Left-big toe i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <track label="Mid-r foot" algo="tracks" x="13200" y="128880" description="" visible="true">
+      <track sequence="Squat" label="Right-small toe s"/>
+
+      <track sequence="Squat" label="Right-big toe s"/>
+
+      <scalar_value sequence="_userInput" label="half"/>
+    </track>
+
+    <track label="Mid-l foot" algo="tracks" x="16260" y="128940" description="" visible="true">
+      <track sequence="Squat" label="Left-small toe s"/>
+
+      <track sequence="Squat" label="Left-big toe s"/>
+
+      <scalar_value sequence="_userInput" label="half"/>
+    </track>
+
+    <vector label="v R foot" algo="tracks" x="6510" y="126465" description="" visible="true">
+      <track sequence="Squat" label="Right-heel s"/>
+
+      <track sequence="Squat" label="Mid-r foot"/>
+    </vector>
+
+    <angle label="a R ankle1" algo="versors" x="9600" y="126495" description="" visible="true">
+      <vector sequence="Squat" label="v R leg"/>
+
+      <vector sequence="Squat" label="v R foot"/>
+    </angle>
+
+    <track label="Left-heel i" algo="flt_spline" x="19455" y="122685" description="" visible="true">
+      <track sequence="Squat" label="Left-heel"/>
+    </track>
+
+    <track label="Left-heel s" algo="flt_smoothtriang" x="19455" y="123555" description="" visible="true">
+      <track sequence="Squat" label="Left-heel i"/>
+
+      <scalar_value sequence="_userInput" label="3"/>
+    </track>
+
+    <vector label="v L foot" algo="tracks" x="6510" y="127500" description="" visible="true">
+      <track sequence="Squat" label="Left-heel s"/>
+
+      <track sequence="Squat" label="Mid-l foot"/>
+    </vector>
+
+    <angle label="a L ankle1" algo="versors" x="9600" y="127515" description="" visible="true">
+      <vector sequence="Squat" label="v L leg"/>
+
+      <vector sequence="Squat" label="v L foot"/>
+    </angle>
+
+    <angle_mcycle label="ac R knee" algo="trigger" x="16020" y="124515" description="" visible="true">
+      <angle sequence="Squat" label="a R knee"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </angle_mcycle>
+
+    <angle_mcycle label="ac L knee" algo="trigger" x="16020" y="125550" description="" visible="true">
+      <angle sequence="Squat" label="a L knee"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </angle_mcycle>
+
+    <angle_cycle_band label="acm R knee" algo="cseq_mean" x="18780" y="124590" description="" visible="true">
+      <angle_mcycle sequence="Squat" label="ac R knee"/>
+    </angle_cycle_band>
+
+    <angle_cycle_band label="acm L knee" algo="cseq_mean" x="18780" y="125550" description="" visible="true">
+      <angle_mcycle sequence="Squat" label="ac L knee"/>
+    </angle_cycle_band>
+
+    <angle_value label="a90deg" algo="const_input" x="10935" y="119835" description="" visible="true" par1="90"/>
+
+    <angle label="a R ankle" algo="difference" x="12150" y="126495" description="" visible="true">
+      <angle sequence="Squat" label="a R ankle1"/>
+
+      <angle_value sequence="_userInput" label="a90deg"/>
+    </angle>
+
+    <angle label="a L ankle" algo="difference" x="12135" y="127665" description="" visible="true">
+      <angle sequence="Squat" label="a L ankle1"/>
+
+      <angle_value sequence="_userInput" label="a90deg"/>
+    </angle>
+
+    <angle_mcycle label="ac R ankle" algo="trigger" x="16035" y="126510" description="" visible="true">
+      <angle sequence="Squat" label="a R ankle"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </angle_mcycle>
+
+    <angle_cycle_band label="acm R ankle" algo="cseq_mean" x="18780" y="126555" description="" visible="true">
+      <angle_mcycle sequence="Squat" label="ac R ankle"/>
+    </angle_cycle_band>
+
+    <angle_mcycle label="ac L ankle" algo="trigger" x="16035" y="127545" description="" visible="true">
+      <angle sequence="Squat" label="a L ankle"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </angle_mcycle>
+
+    <angle_cycle_band label="acm L ankle" algo="cseq_mean" x="18780" y="127515" description="" visible="true">
+      <angle_mcycle sequence="Squat" label="ac L ankle"/>
+    </angle_cycle_band>
+
+    <angle_mcycle label="ac Trunk FE" algo="trigger" x="16065" y="130335" description="" visible="true">
+      <angle sequence="Squat" label="a Trunk FE"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+    </angle_mcycle>
+
+    <angle_cycle_band label="acm Trunk FE" algo="cseq_mean" x="18915" y="130425" description="" visible="true">
+      <angle_mcycle sequence="Squat" label="ac Trunk FE"/>
+    </angle_cycle_band>
+
+    <angle_mvalue label="aR knee at Start Conc" algo="value" x="22110" y="124530" description="" visible="true">
+      <angle sequence="Squat" label="a R knee"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </angle_mvalue>
+
+    <angle_mvalue label="aL knee at Start Conc" algo="value" x="22110" y="125505" description="" visible="true">
+      <angle sequence="Squat" label="a L knee"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </angle_mvalue>
+
+    <angle_mvalue label="aR ankle at Start Conc" algo="value" x="22110" y="126555" description="" visible="true">
+      <angle sequence="Squat" label="a R ankle"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </angle_mvalue>
+
+    <angle_mvalue label="aL ankle at Start Conc" algo="value" x="22110" y="127500" description="" visible="true">
+      <angle sequence="Squat" label="a L ankle"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </angle_mvalue>
+
+    <angle_mvalue label="aTrunk FE at Start Conc" algo="value" x="21900" y="130500" description="" visible="true">
+      <angle sequence="Squat" label="a Trunk FE"/>
+
+      <event_mvalue sequence="Squat" label="START CON"/>
+    </angle_mvalue>
+
+    <angle_value_band label="amR knee at Start Conc" algo="seq_mean" x="26655" y="124530" description="" visible="true">
+      <angle_mvalue sequence="Squat" label="aR knee at Start Conc"/>
+    </angle_value_band>
+
+    <angle_value_band label="amL knee at Start Conc" algo="seq_mean" x="26655" y="125385" description="" visible="true">
+      <angle_mvalue sequence="Squat" label="aL knee at Start Conc"/>
+    </angle_value_band>
+
+    <angle_value_band label="amR ankle at Start Conc" algo="seq_mean" x="26655" y="126330" description="" visible="true">
+      <angle_mvalue sequence="Squat" label="aR ankle at Start Conc"/>
+    </angle_value_band>
+
+    <angle_value_band label="amL ankle at Start Conc" algo="seq_mean" x="26655" y="127455" description="" visible="true">
+      <angle_mvalue sequence="Squat" label="aL ankle at Start Conc"/>
+    </angle_value_band>
+
+    <angle_value_band label="am Trunk at Start Conc" algo="seq_mean" x="26370" y="130590" description="" visible="true">
+      <angle_mvalue sequence="Squat" label="aTrunk FE at Start Conc"/>
+    </angle_value_band>
+
+    <scalar_mvalue label="s GRF max CON /BW" algo="value" x="8490" y="23430" description="" visible="true">
+      <scalar sequence="Squat" label="sGR%BWfull"/>
+
+      <event_mvalue sequence="Squat" label="eFP CON"/>
+    </scalar_mvalue>
+
+    <scalar_value_band label="ms GRF max CON /BW" algo="seq_mean" x="13050" y="22770" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s GRF max CON /BW"/>
+    </scalar_value_band>
+
+    <scalar label="s GRF max CON/BW values" algo="track_itemevn" x="26775" y="21600" description="" visible="true">
+      <scalar_mvalue sequence="Squat" label="s GRF max CON /BW"/>
+
+      <event_mvalue sequence="Squat" label="ev squats seq"/>
+
+      <freq_value sequence="Squat" label="freq"/>
+    </scalar>
+
+    <freq_value label="350Hz" algo="const_input" x="6270" y="46770" description="" visible="true" par1="350"/>
+
+    <emg label="REMGS1~1" algo="flt_buttlp_deft" x="6270" y="47535" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS1"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <text_value label="#EMG#" algo="const_input" x="6270" y="45240" description="" visible="true" text=""/>
+
+    <text_value label="#EMG Filter#" algo="const_input" x="6270" y="46005" description="" visible="true" text=""/>
+
+    <emg label="LEMGS1~1" algo="flt_buttlp_deft" x="6270" y="48435" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS1"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="REMGS2~1" algo="flt_buttlp_deft" x="6270" y="49410" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS2"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="LEMGS2~1" algo="flt_buttlp_deft" x="6270" y="50355" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS2"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="REMGS3~1" algo="flt_buttlp_deft" x="6270" y="51255" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS3"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="LEMGS3~1" algo="flt_buttlp_deft" x="6270" y="52230" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS3"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="REMGS4~1" algo="flt_buttlp_deft" x="6270" y="53085" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS4"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <emg label="LEMGS4~1" algo="flt_buttlp_deft" x="6270" y="54060" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS4"/>
+
+      <freq_value sequence="_userInput" label="350Hz"/>
+    </emg>
+
+    <freq_value label="25Hz" algo="const_input" x="9270" y="46770" description="" visible="true" par1="25"/>
+
+    <emg label="REMGS1~2" algo="flt_butthp_deft" x="9270" y="47520" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS1~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="LEMGS1~2" algo="flt_butthp_deft" x="9270" y="48480" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS1~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="REMGS2~2" algo="flt_butthp_deft" x="9270" y="49350" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS2~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="LEMGS2~2" algo="flt_butthp_deft" x="9270" y="50310" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS2~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="REMGS3~2" algo="flt_butthp_deft" x="9270" y="51285" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS3~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="LEMGS3~2" algo="flt_butthp_deft" x="9270" y="52245" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS3~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="REMGS4~2" algo="flt_butthp_deft" x="9270" y="53115" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="REMGS4~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <emg label="LEMGS4~2" algo="flt_butthp_deft" x="9270" y="54075" description="" visible="true" par1="4">
+      <emg sequence="Squat" label="LEMGS4~1"/>
+
+      <freq_value sequence="_userInput" label="25Hz"/>
+    </emg>
+
+    <time_value label="RMS 300ms" algo="const_input" x="12675" y="46785" description="" visible="true" par1="0.3"/>
+
+    <emg label="REMGS1~3" algo="RMS_mobile" x="12675" y="47715" description="" visible="true">
+      <emg sequence="Squat" label="REMGS1~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="LEMGS1~3" algo="RMS_mobile" x="12675" y="48604" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS1~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="REMGS2~3" algo="RMS_mobile" x="12675" y="49494" description="" visible="true">
+      <emg sequence="Squat" label="REMGS2~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="LEMGS2~3" algo="RMS_mobile" x="12675" y="50383" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS2~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="REMGS3~3" algo="RMS_mobile" x="12675" y="51272" description="" visible="true">
+      <emg sequence="Squat" label="REMGS3~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="LEMGS3~3" algo="RMS_mobile" x="12675" y="52161" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS3~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="REMGS4~3" algo="RMS_mobile" x="12675" y="53051" description="" visible="true">
+      <emg sequence="Squat" label="REMGS4~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <emg label="LEMGS4~3" algo="RMS_mobile" x="12675" y="53940" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS4~2"/>
+
+      <time_value sequence="_userInput" label="RMS 300ms"/>
+    </emg>
+
+    <text_value label="#EMG at Peak Vertical Force#" algo="const_input" x="16845" y="45840" description="" visible="true" text=""/>
+
+    <event_mvalue label="ePeak grf full" algo="manual_max" x="16845" y="46717" description="" visible="true" par1="0" par2="0" par3="0" ev1="Min Vel" ev2="Max Vel">
+      <force1d sequence="Squat" label="grf full"/>
+    </event_mvalue>
+
+    <emg_mvalue label="REMGS1~4" algo="value" x="16845" y="47594" description="" visible="true">
+      <emg sequence="Squat" label="REMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS1~4" algo="value" x="16845" y="48471" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS2~4" algo="value" x="16845" y="49349" description="" visible="true">
+      <emg sequence="Squat" label="REMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS2~4" algo="value" x="16845" y="50226" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS3~4" algo="value" x="16845" y="51103" description="" visible="true">
+      <emg sequence="Squat" label="REMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS3~4" algo="value" x="16845" y="51980" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS4~4" algo="value" x="16845" y="52857" description="" visible="true">
+      <emg sequence="Squat" label="REMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS4~4" algo="value" x="16845" y="53734" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="ePeak grf full"/>
+    </emg_mvalue>
+
+    <emg_value_band label="REMGS1~5" algo="seq_mean" x="20055" y="47640" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS1~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS1~5" algo="seq_mean" x="20055" y="48570" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS1~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS2~5" algo="seq_mean" x="20055" y="49500" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS2~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS2~5" algo="seq_mean" x="20055" y="50430" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS2~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS3~5" algo="seq_mean" x="20055" y="51270" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS3~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS3~5" algo="seq_mean" x="20055" y="52200" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS3~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS4~5" algo="seq_mean" x="20055" y="53130" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS4~4"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS4~5" algo="seq_mean" x="20055" y="54060" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS4~4"/>
+    </emg_value_band>
+
+    <event_mvalue label="eStopeachsquat" algo="manual_enter" x="24480" y="47010" description="" visible="true" par1="5" par2="-300" par3="0" ev1="esqSTART" ev2="esqSTOP">
+      <track1d sequence="Squat" label="Hip.Y"/>
+    </event_mvalue>
+
+    <emg_mvalue label="REMGS1~6" algo="dbl_trigger_max" x="24480" y="47865" description="" visible="true">
+      <emg sequence="Squat" label="REMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS1~6" algo="dbl_trigger_max" x="24480" y="49095" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS2~6" algo="dbl_trigger_max" x="24480" y="50340" description="" visible="true">
+      <emg sequence="Squat" label="REMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS2~6" algo="dbl_trigger_max" x="24480" y="51570" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS3~6" algo="dbl_trigger_max" x="24480" y="52755" description="" visible="true">
+      <emg sequence="Squat" label="REMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS3~6" algo="dbl_trigger_max" x="24480" y="53985" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="REMGS4~6" algo="dbl_trigger_max" x="24480" y="55230" description="" visible="true">
+      <emg sequence="Squat" label="REMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <emg_mvalue label="LEMGS4~6" algo="dbl_trigger_max" x="24480" y="56460" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue>
+
+    <text_value label="#Peak EMG each Squat#" algo="const_input" x="24465" y="46140" description="" visible="true" text=""/>
+
+    <emg_value_band label="REMGS1~7" algo="seq_mean" x="28185" y="48015" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS1~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS1~7" algo="seq_mean" x="28185" y="48945" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS1~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS2~7" algo="seq_mean" x="28185" y="49875" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS2~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS2~7" algo="seq_mean" x="28185" y="50805" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS2~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS3~7" algo="seq_mean" x="28185" y="51645" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS3~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS3~7" algo="seq_mean" x="28185" y="52575" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS3~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS4~7" algo="seq_mean" x="28185" y="53505" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="REMGS4~6"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS4~7" algo="seq_mean" x="28185" y="54435" description="" visible="true">
+      <emg_mvalue sequence="Squat" label="LEMGS4~6"/>
+    </emg_value_band>
+
+    <text_value label="#Average EMG each Squat#" algo="const_input" x="32445" y="46305" description="" visible="true" text=""/>
+
+    <emg_mvalue_band label="REMGS1~8" algo="dbl_trigger_mean" x="32610" y="48135" description="" visible="true">
+      <emg sequence="Squat" label="REMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="LEMGS1~8" algo="dbl_trigger_mean" x="32610" y="49290" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS1~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="REMGS2~8" algo="dbl_trigger_mean" x="32610" y="50565" description="" visible="true">
+      <emg sequence="Squat" label="REMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="LEMGS2~8" algo="dbl_trigger_mean" x="32610" y="51630" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS2~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="REMGS3~8" algo="dbl_trigger_mean" x="32610" y="52965" description="" visible="true">
+      <emg sequence="Squat" label="REMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="LEMGS3~8" algo="dbl_trigger_mean" x="32610" y="54120" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS3~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="REMGS4~8" algo="dbl_trigger_mean" x="32610" y="55395" description="" visible="true">
+      <emg sequence="Squat" label="REMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_mvalue_band label="LEMGS4~8" algo="dbl_trigger_mean" x="32610" y="56460" description="" visible="true">
+      <emg sequence="Squat" label="LEMGS4~3"/>
+
+      <event_mvalue sequence="Squat" label="START ECC"/>
+
+      <event_mvalue sequence="Squat" label="eStopeachsquat"/>
+    </emg_mvalue_band>
+
+    <emg_value_band label="REMGS1~9" algo="seq_mean" x="36090" y="48270" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="REMGS1~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS1~9" algo="seq_mean" x="36090" y="49200" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="LEMGS1~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS2~9" algo="seq_mean" x="36090" y="50130" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="REMGS2~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS2~9" algo="seq_mean" x="36090" y="51060" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="LEMGS2~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS3~9" algo="seq_mean" x="36090" y="51900" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="REMGS3~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS3~9" algo="seq_mean" x="36090" y="52830" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="LEMGS3~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="REMGS4~9" algo="seq_mean" x="36090" y="53760" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="REMGS4~8"/>
+    </emg_value_band>
+
+    <emg_value_band label="LEMGS4~9" algo="seq_mean" x="36090" y="54690" description="" visible="true">
+      <emg_mvalue_band sequence="Squat" label="LEMGS4~8"/>
+    </emg_value_band>
+  </computations>
+
+  <report/>
+
+  <units>
+    <track1d_value unitName="mm" unitFactor="1000" roundDepth="2" confidence="1"/>
+
+    <reference_value unitName="m" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <vel1d_value unitName="m/s" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <acc1d_value unitName="m/s^2" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <angle_value unitName="deg" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <angvel1d_value unitName="deg/s" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <angacc1d_value unitName="deg/s^2" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <scalar_value unitName="" unitFactor="1" roundDepth="1" confidence="1"/>
+
+    <force1d_value unitName="N" unitFactor="1" roundDepth="0" confidence="1"/>
+
+    <torque1d_value unitName="N*m" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <work_value unitName="KJ" unitFactor=".001" roundDepth="3" confidence="1"/>
+
+    <power_value unitName="W" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <analog_value unitName="V" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <emg_value unitName="V" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <time_value unitName="ms" unitFactor="1000" roundDepth="3" confidence="1"/>
+
+    <freq_value unitName="Hz" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <mass_value unitName="kg" unitFactor="1" roundDepth="1" confidence="1"/>
+
+    <minert_value unitName="Kg*m^2" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <volume_value unitName="m^3" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <density_value unitName="kg/m^3" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <event_value unitName="s" unitFactor="1" roundDepth="3" confidence="1"/>
+
+    <spectrum_value unitName="" unitFactor="1" roundDepth="3" confidence="1"/>
+  </units>
+
+  <models>
+    <stick_model sequence="Squat" nLinks="31">
+      <link label1="Right-hip" label2="Left-hip"/>
+
+      <link label1="Right-hip" label2="Right-knee"/>
+
+      <link label1="Right-knee" label2="Right-ankle"/>
+
+      <link label1="Left-hip" label2="Left-knee"/>
+
+      <link label1="Left-knee" label2="Left-ankle"/>
+
+      <link label1="Right-shoulder" label2="Left-shoulder"/>
+
+      <link label1="Left-shoulder" label2="Left-hip"/>
+
+      <link label1="Right-shoulder" label2="Right-hip"/>
+
+      <link label1="Right-ankle" label2="Right-heel"/>
+
+      <link label1="Right-heel" label2="Right-small_toe"/>
+
+      <link label1="Right-small_toe" label2="Right-big_toe"/>
+
+      <link label1="Right-big_toe" label2="Right-heel"/>
+
+      <link label1="Left-heel" label2="Left-big_toe"/>
+
+      <link label1="Left-big_toe" label2="Left-small_toe"/>
+
+      <link label1="Left-small_toe" label2="Left-heel"/>
+
+      <link label1="Left-ankle" label2="Left-heel"/>
+
+      <link label1="Right-shoulder" label2="Right-elbow"/>
+
+      <link label1="Right-elbow" label2="Right-wrist"/>
+
+      <link label1="Left-elbow" label2="Left-wrist"/>
+
+      <link label1="Left-elbow" label2="Left-shoulder"/>
+
+      <link label1="Head" label2="Left-ear"/>
+
+      <link label1="Head" label2="Right-ear"/>
+
+      <link label1="Right-ear" label2="Neck"/>
+
+      <link label1="Neck" label2="Left-ear"/>
+
+      <link label1="Head" label2="Neck"/>
+
+      <link label1="Right-ear" label2="Left-ear"/>
+
+      <link label1="Right-eye" label2="Left-eye"/>
+
+      <link label1="Left-eye" label2="Nose"/>
+
+      <link label1="Nose" label2="Right-eye"/>
+
+      <link label1="Hip" label2="Right-hip"/>
+
+      <link label1="Hip" label2="Left-hip"/>
+    </stick_model>
+  </models>
+</protocol>

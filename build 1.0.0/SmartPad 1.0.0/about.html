@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor Plus - GitHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .github-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .github-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .github-link:active {
+            transform: translateY(-1px);
+        }
+        
+        .info-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            text-align: left;
+        }
+        
+        .info-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .info-item {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .info-item strong {
+            color: #333;
+        }
+        
+        .features {
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📝</div>
+        <h1>Text Editor Plus</h1>
+        <p class="subtitle">Advanced Text Editor v1.0.0</p>
+        
+        <div class="description">
+            <p>
+                Text Editor Plus (SmartPad) is a powerful, modern text editor with syntax highlighting 
+                and auto-formatting capabilities. Built with Python and PyQt5 for cross-platform compatibility.
+            </p>
+        </div>
+        
+        <a href="https://github.com/MrPatchara/Text-Editor-Plus" target="_blank" class="github-link">
+            🔗 ไปที่ GitHub Repository
+        </a>
+        
+        <div class="info-section">
+            <h2>📋 ข้อมูลโปรแกรม</h2>
+            <div class="info-item">
+                <strong>เวอร์ชัน:</strong> 1.0.0
+            </div>
+            <div class="info-item">
+                <strong>ผู้พัฒนา:</strong> Mr. Patchara Al-umaree
+            </div>
+            <div class="info-item">
+                <strong>อีเมล:</strong> <a href="mailto:Patcharaalumaree@gmail.com" style="color: #667eea;">Patcharaalumaree@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <strong>GitHub:</strong> <a href="https://github.com/MrPatchara" target="_blank" style="color: #667eea;">https://github.com/MrPatchara</a>
+            </div>
+            <div class="info-item">
+                <strong>ที่ตั้ง:</strong> Bangkok, Thailand
+            </div>
+            <div class="info-item">
+                <strong>การศึกษา:</strong> Computer Engineering Student
+            </div>
+        </div>
+        
+        <div class="features">
+            <h2>✨ คุณสมบัติหลัก</h2>
+            <ul>
+                <li>Syntax Highlighting สำหรับหลายภาษา</li>
+                <li>Auto-Formatting สำหรับ XML, JSON, Python, CSS, JavaScript</li>
+                <li>รองรับ Dark Theme และ Light Theme</li>
+                <li>Line numbers และ Word wrap</li>
+                <li>Find and Replace พร้อม match counter</li>
+                <li>รองรับ High DPI scaling</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; color: #888; font-size: 0.9em;">
+            <p>© 2024 Text Editor Plus. Licensed under MIT License.</p>
+        </div>
+    </div>
+</body>
+</html>
+
